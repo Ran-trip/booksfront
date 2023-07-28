@@ -1,4 +1,5 @@
 import React from 'react';
+import './creationAccount.css';
 
 const creationAccount = () => {
   return (
