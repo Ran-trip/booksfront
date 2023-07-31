@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
+import logo from '../../assets/logos.svg';
 import './navbar.css';
 
 
@@ -8,7 +10,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav>
-      <Link to="/" className="logo" > Books </Link>
+      <Link to="/" className="logo" > <img src={logo} alt="Books Love Logo" className='logoStyle' /> </Link>
       <div className="menu" onClick={() => setMenuOpen(menuOpen => !menuOpen)} >
         <span></span>
         <span></span>

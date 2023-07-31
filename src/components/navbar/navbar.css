@@ -12,17 +12,17 @@ nav {
     top: 0;
 }
 
-.logo {
-    font-size: 1.5rem;
-    margin: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
+.logoStyle {
+    width: 8rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
     display: flex;
     font-family:  Libre Baskerville;
+    
 }
 
 nav ul li {
