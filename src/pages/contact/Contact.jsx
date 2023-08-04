@@ -20,6 +20,7 @@ const Contact = () => {
   // chercher les informations avec useForm
   // formstate pour afficher les erreurs de l'utilisateur couplé avec yop resolver
   //gérer les erreurs
+  //formState contient des objets tel que: error ,isValidad etc
 
   const { register, formState: { errors }, handleSubmit,} = useForm({resolver : yupResolver(schema)});
   
@@ -43,7 +44,7 @@ const Contact = () => {
       });
   };
 
-
+  // ref prend les valeurs dans l'input
   return (
     <div className='contactContainer'>
       <div className='wrapperContact'>
