@@ -26,7 +26,8 @@ nav ul {
 }
 
 nav ul li {
-    list-style: none;    
+    list-style: none;
+    margin-right: 2.5rem;    
 }
 
 nav ul li a {
@@ -61,6 +62,25 @@ nav .menu span {
     border-radius: 0.2rem;
 }
 
+nav .customList {
+    margin: 0;
+}
+nav .genresList {
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    font-size: 0.90rem;
+    font-family: Cormorant Garamond;
+    text-decoration: none;
+    background-color: #9BA4B5;
+}
+
+nav ul .genreStyle {
+    text-indent: 10px;
+    margin-bottom: 10px;
+}
+
+
 @media (max-width: 700px) {
     nav .menu {
         display: flex;
@@ -85,9 +105,14 @@ nav .menu span {
     nav ul li {
         width: 100%;
         text-align: center;
+        margin: 0;
     }
 
     nav ul li a {
         margin: 0.2rem 0.5rem;
+    }
+    nav .genresList {
+        margin: 0;
+        position: relative;
     }
 }

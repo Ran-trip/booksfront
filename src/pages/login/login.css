@@ -49,8 +49,4 @@ form p {
     text-align: center;
     font-size: 0.9rem;
     font-family: Cormorant Garamond;
-    &::before {
-        display: inline;
-        content: '⚠';
-      }
 }
