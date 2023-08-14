@@ -34,9 +34,12 @@ const Login = () => {
   const onSubmit = (data) => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/users/login`, data)
-      .then(({ data: { credential } }) => {
+      .then(({ data: { credential, role } }) => {
+        console.log(role)
+        console.log(credential)
         setUser({
           token: credential,
+          role: role,
         });
         localStorage.setItem("jwt", credential);
         navigator("/");

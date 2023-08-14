@@ -1,52 +1,52 @@
 .CreationAccountContainer {
-    padding: 2rem;
+  padding: 2rem;
 }
 
-.titleCreation{
-    text-align: center;
-    font-family: Libre Baskerville;
-    padding: auto;
-    padding-bottom: 5rem;
-    color: #212A3E;
+.titleCreation {
+  text-align: center;
+  font-family: Libre Baskerville;
+  padding: auto;
+  padding-bottom: 5rem;
+  color: #212a3e;
 }
 
-form label  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+form label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 form p {
-    color: red;
-    text-align: center;
-    font-size: 0.9rem;
-    font-family: Cormorant Garamond;
-    &::before {
-        display: inline;
-        content: '⚠';
-      }
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: Cormorant Garamond;
+  &::before {
+    display: inline;
+    content: "⚠";
+  }
 }
 
 .buttonCreationAccount {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .buttonCreationAccountStyle {
-    width: 5rem;
-    height: 1.5rem;
-    border: none;
-    color: #F1F6F9;
-    border-radius: 15px;
-    font-family:  Libre Baskerville;
-    background-color: #394867;
+  width: 5rem;
+  height: 1.5rem;
+  border: none;
+  color: #f1f6f9;
+  border-radius: 15px;
+  font-family: Libre Baskerville;
+  background-color: #394867;
 }
 
 .errorCreaback {
-    color: red;
-    text-align: center;
-    font-size: 0.9rem;
-    font-family: Cormorant Garamond;
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: Cormorant Garamond;
 }

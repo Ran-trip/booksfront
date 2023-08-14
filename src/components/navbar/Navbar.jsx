@@ -16,14 +16,19 @@ const Navbar = () => {
   useEffect(() => {
     const callGenres = async () => {
       try {
-        const { data: genresApi } = await axios.get(`${process.env.REACT_APP_API_URL}/genres`);
+        const { data: genresApi } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/genres`
+        );
         SetGenres(genresApi);
       } catch (error) {
         // Gérer les erreurs si nécessaire
-        console.error("Une erreur s'est produite lors de la récupération des genres :", error);
+        console.error(
+          "Une erreur s'est produite lors de la récupération des genres :",
+          error
+        );
       }
     };
-  
+
     callGenres();
   }, []);
 
@@ -49,7 +54,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink to="/livres">Livres</NavLink>{" "}
+              <NavLink to="/books">Livres</NavLink>{" "}
             </li>
             <li>
               {" "}
@@ -73,29 +78,25 @@ const Navbar = () => {
             </li>
             <li>
               <div
-              className="customList"
-              onMouseEnter={() => setisOnGenres(true)}
-              onMouseLeave={() => setisOnGenres(false)}
-              onClick={() => setisOnGenres(!isOnGenres)}
-              
+                className="customList"
+                onMouseEnter={() => setisOnGenres(true)}
+                onMouseLeave={() => setisOnGenres(false)}
+                onClick={() => setisOnGenres(!isOnGenres)}
               >
-              {" "}
-              <NavLink
-              
-                to="/livres"
-                
-              >
-                Livres
-              </NavLink>
-              {" "}
-              <div className="genresList" >
-              {
-                isOnGenres && genres.map((genre) => (
-                <p className="genreStyle" key={genre.id}>{genre.name}</p>
-              ))}
-
-              </div>
-
+                {" "}
+                <NavLink to="/books">Livres</NavLink>{" "}
+                <div className="genresList">
+                  {isOnGenres &&
+                    genres.map((genre) => (
+                      <Link
+                        className="genreStyle"
+                        to={`/genres/${genre.id}`}
+                        key={genre.id}
+                      >
+                        {genre.name}
+                      </Link>
+                    ))}
+                </div>
               </div>
             </li>
             <li>
@@ -116,7 +117,11 @@ const Navbar = () => {
           <>
             <li>
               {" "}
-              <NavLink to="/admin/photo">Ajouter Photo livre</NavLink>{" "}
+              <NavLink to="books/create">Ajouter Photo livre</NavLink>{" "}
+            </li>
+            <li>
+              {" "}
+              <NavLink to="books/delete">Supprimer un livre</NavLink>{" "}
             </li>
             <li>
               {" "}

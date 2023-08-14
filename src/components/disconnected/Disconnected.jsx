@@ -6,12 +6,13 @@ const Disconnected = () => {
   const { setUser, setAdmin } = useUser();
 
   useEffect(() => {
+    // Supprimer le JWT du localStorage lors de la déconnexion
+    localStorage.removeItem("jwt");
+    
+    // Réinitialiser les états de l'utilisateur et de l'administrateur
     setUser(null);
-  }, [setUser]);
-
-  useEffect(() => {
     setAdmin(null);
-  }, [setAdmin]);
+  }, [setUser, setAdmin]);
 
   return <Navigate to="/" />;
 };

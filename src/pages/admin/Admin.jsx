@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from 'axios'
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -33,13 +33,20 @@ const Admin = () => {
 
   const onSubmit = (data) => {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/admin/login`, data)
+    //req.headers.authorization
+      .post(`${process.env.REACT_APP_API_URL}/admin/login`, data,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("adminJwt")}`, // Ajout du token dans l'en-tête
+        },
+      })
       .then(({ data: { credential } }) => {
+        console.log("Data from Axios:", credential); 
         setAdmin({
-          token: credential,
+          token: credential,         
         });
         localStorage.setItem("jwt", credential);
-        navigator("/AdminPanel");
+        navigator("/adminPanel");
       })
       .catch(
         ({

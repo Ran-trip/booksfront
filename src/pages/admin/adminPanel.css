@@ -1,0 +1,14 @@
+.adminHeaderTitle {
+    font-family: 'Libre Baskerville';
+    font-size: 20px; 
+    color: #394867; 
+    text-align: center; 
+    padding: 7rem; 
+}
+@media (min-width: 700px) {
+    
+    .adminHeaderTitle {
+        font-size: 24px; 
+        padding: 8rem; 
+    }
+}

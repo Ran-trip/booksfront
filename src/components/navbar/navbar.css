@@ -1,118 +1,115 @@
 .active {
-    background-color: #F1F6F9;
-    border-radius: 5px;
+  background-color: #f1f6f9;
+  border-radius: 5px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #9BA4B5;
-    position: sticky;
-    top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9ba4b5;
+  position: sticky;
+  top: 0;
 }
 
 .logoStyle {
-    width: 8rem;
-    height: 4.5rem;
-    display: flex;
-    justify-content: center;
+  width: 8rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
-    display: flex;
-    font-family:  Libre Baskerville;
-    
+  display: flex;
+  font-family: Libre Baskerville;
 }
 
 nav ul li {
-    list-style: none;
-    margin-right: 2.5rem;    
+  list-style: none;
+  margin-right: 2.5rem;
 }
 
 nav ul li a {
-    display: block;
-    text-decoration: none;
-    color:#394867;
-    padding: 0.5rem;
-    margin: 0 0.05rem;
-
+  display: block;
+  text-decoration: none;
+  color: #394867;
+  padding: 0.5rem;
+  margin: 0 0.05rem;
 }
 
 nav ul a:not(.active):hover {
-    background-color: #212A3E;
-    border-radius: 5px;
+  background-color: #212a3e;
+  border-radius: 5px;
 }
 
 nav .menu {
-    display: none;
-    position: absolute;
-    top: 0.75rem;
-    right: 0.5rem;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 2.2rem;
-    height: 2rem;
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.2rem;
+  height: 2rem;
 }
 
 nav .menu span {
-    height: 0.4rem;
-    width: 100%;
-    background-color: white;
-    border-radius: 0.2rem;
+  height: 0.4rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.2rem;
 }
 
 nav .customList {
-    margin: 0;
+  margin: 0;
 }
 nav .genresList {
-    margin: 0;
-    position: absolute;
-    text-align: center;
-    font-size: 0.90rem;
-    font-family: Cormorant Garamond;
-    text-decoration: none;
-    background-color: #9BA4B5;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: Cormorant Garamond;
+  text-decoration: none;
+  background-color: #9ba4b5;
 }
 
 nav ul .genreStyle {
-    text-indent: 10px;
-    margin-bottom: 10px;
+  text-indent: 10px;
+  margin-bottom: 10px;
 }
 
-
 @media (max-width: 700px) {
-    nav .menu {
-        display: flex;
-    }
+  nav .menu {
+    display: flex;
+  }
 
-    nav {
-        flex-direction: column;
-        align-items: start;
-    }
+  nav {
+    flex-direction: column;
+    align-items: start;
+  }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-bottom: 0.25rem;
-    }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
 
-    nav ul.open {
-        display: flex;
-    }
+  nav ul.open {
+    display: flex;
+  }
 
-    nav ul li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-    }
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
 
-    nav ul li a {
-        margin: 0.2rem 0.5rem;
-    }
-    nav .genresList {
-        margin: 0;
-        position: relative;
-    }
+  nav ul li a {
+    margin: 0.2rem 0.5rem;
+  }
+  nav .genresList {
+    margin: 0;
+    position: relative;
+  }
 }
