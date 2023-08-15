@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import axios from "axios";
 
 // son role c'est de gérer l'état
 //créer un context
@@ -11,12 +11,13 @@ const UserProvider = ({ children }) => {
     localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user"))
       : null
-  ); //Etat
+  );
   const [admin, setAdmin] = useState(
     localStorage.getItem("admin")
       ? JSON.parse(localStorage.getItem("admin"))
       : null
   );
+  const [genresMap, setGenresMap] = useState({}); // Ajouter l'état des genres
 
   useEffect(() => {
     if (user) {
@@ -25,8 +26,7 @@ const UserProvider = ({ children }) => {
       localStorage.removeItem("user");
     }
   }, [user]);
-
-  // la même chose mais avec l'admin
+ // la même chose mais avec l'admin
   useEffect(() => {
     if (admin) {
       localStorage.setItem("admin", JSON.stringify(admin));
@@ -34,14 +34,34 @@ const UserProvider = ({ children }) => {
       localStorage.removeItem("admin");
     }
   }, [admin]);
-  // retourne le provider avec les enfants
+
+  useEffect(() => {
+    const retrieveGenres = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/genres`
+        );
+        const genresMap = {};
+        data.forEach((genre) => {
+          genresMap[genre.id] = genre.name;
+        });
+
+        setGenresMap(genresMap);
+      } catch (error) {
+        console.error("genre non récupéré", error);
+      }
+    };
+
+    retrieveGenres();
+  }, []); // Charger les genres une seule fois
+// retourne le provider avec les enfants
   return (
-    <UserContext.Provider value={{ user, setUser, admin, setAdmin }}>
+    <UserContext.Provider value={{ user, setUser, admin, setAdmin, genresMap }}>
       {children}
     </UserContext.Provider>
   );
 };
-//hook qui permet de l'utiliser n'importe ou
+
 export const useUser = () => useContext(UserContext);
 
 export default UserProvider;

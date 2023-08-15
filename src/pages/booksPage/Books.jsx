@@ -1,47 +1,45 @@
 import React, { useEffect, useState } from "react";
-import "./books.css";
+import { useUser } from '../../context/UserContext';
 import axios from "axios";
+import "./books.css";
 
 const Books = () => {
   const [booksList, setBooksList] = useState([]);
-  const [genresMap, setGenresMap] = useState({}); // un état pour stockers les genres
+  const { genresMap } = useUser(); // Utiliser le genresMap du contexte utilisateur
 
   useEffect(() => {
     const retrieveBooks = async () => {
-      //try catch explication pas toujours necessaire
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_URL}/books`
         );
         setBooksList(data);
       } catch (error) {
-        console.error("livre non récupéré", error); //Explication
+        console.error("livre non récupéré", error);
       }
     };
 
-    const retrieveGenres = async () => {
-      try {
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API_URL}/genres`
-        );
-        const genresMap = data.reduce((map, genre) => {
-          map[genre.id] = genre.name;
-          return map;
-        }, {});
-        setGenresMap(genresMap);
-      } catch (error) {
-        console.error("genre non récupéré", error);
-      }
-    };
-
-    retrieveGenres();
     retrieveBooks();
   }, []);
+
+  const handleBookClick = (book) => {
+    const selectedBooks = JSON.parse(localStorage.getItem("selectedBooks")) || [];
+    const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || {};
+
+    selectedBooks.push(book);
+    selectedGenres[book.id] = genresMap[book.genreId];
+
+    localStorage.setItem("selectedBooks", JSON.stringify(selectedBooks));
+  };
 
   return (
     <div className="containerBooks">
       {booksList.map((book) => (
-        <div className="cardBooks" key={book.id}>
+        <div
+          className="cardBooks"
+          key={book.id}
+          onClick={() => handleBookClick(book)}
+        >
           <img
             className="imageBooks"
             width="200px"
