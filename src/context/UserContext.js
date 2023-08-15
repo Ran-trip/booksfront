@@ -26,7 +26,7 @@ const UserProvider = ({ children }) => {
       localStorage.removeItem("user");
     }
   }, [user]);
- // la même chose mais avec l'admin
+  // la même chose mais avec l'admin
   useEffect(() => {
     if (admin) {
       localStorage.setItem("admin", JSON.stringify(admin));
@@ -54,7 +54,7 @@ const UserProvider = ({ children }) => {
 
     retrieveGenres();
   }, []); // Charger les genres une seule fois
-// retourne le provider avec les enfants
+  // retourne le provider avec les enfants
   return (
     <UserContext.Provider value={{ user, setUser, admin, setAdmin, genresMap }}>
       {children}

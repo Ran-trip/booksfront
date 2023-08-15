@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useUser } from '../../context/UserContext';
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useBooks } from "../../context/BooksContext"; // Importer le contexte des livres
 import "./books.css";
 
 const Books = () => {
-  const [booksList, setBooksList] = useState([]);
-  const { genresMap } = useUser(); // Utiliser le genresMap du contexte utilisateur
+  const { booksList, setBooksList, handleBookClick, genresMap } = useBooks(); // Utiliser le contexte des livres
+  const { genreId } = useParams();
 
   useEffect(() => {
     const retrieveBooks = async () => {
@@ -13,24 +14,19 @@ const Books = () => {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_URL}/books`
         );
-        setBooksList(data);
+        const filteredBooks = genreId
+          ? data.filter((book) => book.genreId === parseInt(genreId))
+          : data;
+
+        // Mettre à jour la liste des livres dans le contexte
+        setBooksList(filteredBooks);
       } catch (error) {
-        console.error("livre non récupéré", error);
+        console.error("Erreur lors de la récupération des livres :", error);
       }
     };
 
     retrieveBooks();
-  }, []);
-
-  const handleBookClick = (book) => {
-    const selectedBooks = JSON.parse(localStorage.getItem("selectedBooks")) || [];
-    const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || {};
-
-    selectedBooks.push(book);
-    selectedGenres[book.id] = genresMap[book.genreId];
-
-    localStorage.setItem("selectedBooks", JSON.stringify(selectedBooks));
-  };
+  }, [genreId, setBooksList]);
 
   return (
     <div className="containerBooks">

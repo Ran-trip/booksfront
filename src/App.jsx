@@ -16,6 +16,7 @@ import AdminCreateBook from "./components/adminCreateBook/AdminCreateBook";
 import AdminDeleteBook from "./components/adminDeleteBook/AdminDeleteBook";
 
 import UserProvider from "./context/UserContext";
+import BooksProvider from "./context/BooksContext";
 
 import "./index.css";
 
@@ -23,6 +24,7 @@ const App = () => {
   return (
     <div>
       <UserProvider>
+        <BooksProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,7 +33,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/creationaccount" element={<CreationAccount />} />
           <Route path="*" element={<Nofound />} />
-          <Route path="/genres/:id" element={<Genre />} />
+          <Route path="/genres/:genreId" element={<Genre />} />
           <Route path="/bookslist" element={<BooksList />} />
           <Route path="/disconnected" element={<Disconnected />} />
 
@@ -40,6 +42,8 @@ const App = () => {
           <Route path="books/create" element={<AdminCreateBook />} />
           <Route path="books/delete" element={<AdminDeleteBook />} />
         </Routes>
+
+        </BooksProvider>
       </UserProvider>
     </div>
   );
