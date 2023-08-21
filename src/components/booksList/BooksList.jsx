@@ -25,13 +25,13 @@ const BooksList = () => {
   };
 
   return (
-    <div>
-      <h1>Ma liste</h1>
-      <ul>
-        {booksList.map((book) => (
-          <li key={book.id}>
+    <div className="containerBookList">
+      <h1 className="titleBookList">Ma liste</h1>
+      <div className="bookGrid">
+        {booksList.map((book, index) => (
+          <div className="bookItem" key={`${book.id}-${index}`}>
             <img
-              width="200px"
+              className="bookImage"
               src={
                 book.picture.includes("http")
                   ? book.picture
@@ -39,13 +39,17 @@ const BooksList = () => {
               }
               alt={book.name}
             />
-            <h3>{book.name}</h3>
-            <p>Genre: {genresMap[book.genreId]}</p>
-            <p>{new Date(book.releaseDate).toLocaleDateString()}</p>
-            <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
-          </li>
+            <h3 className="bookTitle">{book.name}</h3>
+            <p className="bookGenre">Genre: {genresMap[book.genreId]}</p>
+            <p className="bookReleaseDate">
+              {new Date(book.releaseDate).toLocaleDateString()}
+            </p>
+            <button className="bookDeleteButton" onClick={() => handleDeleteBook(book.id)}>
+              Delete
+            </button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

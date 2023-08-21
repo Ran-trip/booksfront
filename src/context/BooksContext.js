@@ -23,6 +23,16 @@ const BooksProvider = ({ children }) => {
     retrieveBooks();
   }, []);
 
+  const updateBookById = async (id, data) => {
+    
+    try {
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/books/${id}`, data);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
   // Fonction pour ajouter un livre sélectionné au localStorage
   const handleBookClick = (book) => {
     const selectedBooks =
@@ -37,7 +47,7 @@ const BooksProvider = ({ children }) => {
   };
 
   return (
-    <BooksContext.Provider value={{ booksList, setBooksList, handleBookClick, genresMap }}>
+    <BooksContext.Provider value={{ booksList, setBooksList, handleBookClick, genresMap, updateBookById }}>
       {children}
     </BooksContext.Provider>
   );

@@ -1,6 +1,76 @@
-.containerBooks{
+body {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .bookTitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Mobile: 1 column */
+    gap: 20px;
+  }
+  
+  /* Mobile Styles */
+  .containerBooks {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .cardBooks {
+    width: calc(50% - 10px); /* 2 cards per row in mobile */
+    margin-bottom: 20px;
+    border: 1px solid #9BA4B5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .cardBooks:hover {
+    transform: translateY(-20px);
+  }
+  
+  .imageBooks {
+    width: 100%;
+    height: auto;
+  }
+  
+  .detailBook {
+    padding: 10px;
+  }
+  
+  .titleBook {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .releaseBook {
+    font-size: 0.9rem;
+    color: #9BA4B5;
+  }
+  
+  /* Tablet Styles */
+  @media screen and (min-width: 700px) {
+    .cardBooks {
+      width: calc(25% - 20px); /* 3 cards per row on tablets */
+    }
+  }
+  
+  /* Desktop Styles */
+  @media screen and (min-width: 992px) {
+    .cardBooks {
+      width: calc(15% - 25px); /* 4 cards per row on larger desktop */
+    }
+    .detailBook {
+        padding: 10px 16px;
+      }
+    
+      .titleBook {
+        font-size: 1rem; /* Reduce title font size on desktop */
+      }
+  }

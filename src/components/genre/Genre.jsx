@@ -1,16 +1,3 @@
-// import React from "react";
-// import { useUser } from "../../context/UserContext";
-// import { useParams } from "react-router-dom";
-
-// const Genre = () => {
-//   const { genreId } = useParams();
-//   const genreName = useUser().genresMap[parseInt(genreId)];
-
-//   return <div>Genre: {genreName}</div>;
-// };
-
-// export default Genre;
-
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";

@@ -21,19 +21,27 @@ const AdminDeleteBook = () => {
 
   const handleDeleteBook = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/books/${id}`);
+      const adminJwt = localStorage.getItem("adminJwt");
+      await axios.delete(`${process.env.REACT_APP_API_URL}/books/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${adminJwt}`, // Utilisez le token d'authentification de l'admin
+        },
+      } 
+      );
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div>
+    <div className="containerDelete">
       {booksList.map((book) => (
-        <div key={book.id}>
-          <h2>{book.name}</h2>
-          <p>{new Date(book.releaseDate).toLocaleDateString()}</p>
+        <div key={book.id} className="cardDelete">
+          <h2 className="booksNameDelete">{book.name}</h2>
+          <p className="dateStyleDelete">{new Date(book.releaseDate).toLocaleDateString()}</p>
           <img
+            className="imageDelete"
             width="200px"
             src={
               book.picture.includes("http")
@@ -42,8 +50,8 @@ const AdminDeleteBook = () => {
             }
             alt={book.name}
           />
-          <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
-          <button onClick={() => navigator("/books")}>Go to Books</button>
+          <button className="buttonDeleteBook" onClick={() => handleDeleteBook(book.id)}>Delete</button>
+          <button className="buttonGoHome" onClick={() => navigator("/books")}>Go to Books</button>
         </div>
       ))}
     </div>

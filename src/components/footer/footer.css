@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #9BA4B5;
+  color: #212A3E;
+  padding: 20px;
+  font-family: "Libre Baskerville", serif;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  flex-grow: 1; /* Pour occuper l'espace disponible */
+  text-align: center; /* Centrer le texte */
+}

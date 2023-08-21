@@ -37,7 +37,7 @@ const Admin = () => {
       .post(`${process.env.REACT_APP_API_URL}/admin/login`, data,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("adminJwt")}`, // Ajout du token dans l'en-tête
+          Authorization: `Bearer ${localStorage.getItem("adminJwt")}`, 
         },
       })
       .then(({ data: { credential } }) => {
@@ -45,7 +45,7 @@ const Admin = () => {
         setAdmin({
           token: credential,         
         });
-        localStorage.setItem("jwt", credential);
+        localStorage.setItem("adminJwt", credential);
         navigator("/adminPanel");
       })
       .catch(

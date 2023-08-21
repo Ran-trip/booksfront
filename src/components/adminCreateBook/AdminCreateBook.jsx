@@ -42,7 +42,12 @@ const AdminCreateBook = () => {
     formData.append("picture", picture[0]);
 
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/books`, formData);
+      const adminJwt = localStorage.getItem("adminJwt");
+      await axios.post(`${process.env.REACT_APP_API_URL}/books`, formData, {
+        headers: {
+          Authorization: `Bearer ${adminJwt}`,
+        },
+      });
       navigator("/books");
     } catch (error) {
       console.error(

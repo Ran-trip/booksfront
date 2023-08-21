@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,} from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Contact from "./pages/contact/Contact";
@@ -7,6 +7,7 @@ import Login from "./pages/login/Login";
 import Nofound from "./pages/noFound/NoFound";
 import Admin from "./pages/admin/Admin";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 import Books from "./pages/booksPage/Books";
 import BooksList from "./components/booksList/BooksList";
 import Disconnected from "./components/disconnected/Disconnected";
@@ -14,11 +15,13 @@ import AdminPanel from "./pages/admin/AdminPanel";
 import Genre from "./components/genre/Genre";
 import AdminCreateBook from "./components/adminCreateBook/AdminCreateBook";
 import AdminDeleteBook from "./components/adminDeleteBook/AdminDeleteBook";
+import AdminUpdateGenre from "./components/adminUpdateGenre/UpdateGenre";
 
 import UserProvider from "./context/UserContext";
 import BooksProvider from "./context/BooksContext";
 
 import "./index.css";
+
 
 const App = () => {
   return (
@@ -39,14 +42,17 @@ const App = () => {
 
           <Route path="/admin" element={<Admin />} />
           <Route path="/adminPanel" element={<AdminPanel />} />
-          <Route path="books/create" element={<AdminCreateBook />} />
-          <Route path="books/delete" element={<AdminDeleteBook />} />
-        </Routes>
+          <Route path="/admin/create" element={<AdminCreateBook />} />
+          <Route path="/admin/delete" element={<AdminDeleteBook />} />
+          <Route path="/admin/update/genre/:id" element={<AdminUpdateGenre />} />
 
+        </Routes>
         </BooksProvider>
+        <Footer/>
       </UserProvider>
     </div>
   );
 };
 
 export default App;
+

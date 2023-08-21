@@ -109,7 +109,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink to="/disconnected">Déconnecté</NavLink>{" "}
+              <NavLink to="/disconnected">Se déconnecter</NavLink>{" "}
             </li>
           </>
         )}
@@ -117,15 +117,15 @@ const Navbar = () => {
           <>
             <li>
               {" "}
-              <NavLink to="books/create">Ajouter Photo livre</NavLink>{" "}
+              <NavLink to="admin/create">Ajouter des livres</NavLink>{" "}
             </li>
             <li>
               {" "}
-              <NavLink to="books/delete">Supprimer un livre</NavLink>{" "}
+              <NavLink to="admin/delete">Supprimer des livres</NavLink>{" "}
             </li>
             <li>
               {" "}
-              <NavLink to="/admin/genres">Modification Genre</NavLink>{" "}
+              <NavLink to={"/admin/update/genre/:id"}>Modification genre</NavLink>{" "}
             </li>
             <li>
               {" "}

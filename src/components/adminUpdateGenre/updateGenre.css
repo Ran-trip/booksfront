@@ -1,0 +1,52 @@
+.containerUpdateGenre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  margin: 6rem;
+}
+
+.titleGenreUpdate {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.selectFirstGenreUpdate {
+  padding: 0.5rem;
+  border: 1px solid #212a3e;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.selectedGenreUpdate {
+  width: 100%;
+  text-align: center;
+}
+
+.buttonGenreUpdate {
+  height: 1.5rem;
+  border: none;
+  color: #f1f6f9;
+  border-radius: 10px;
+  font-family: "Libre Baskerville";
+  background-color: #394867;
+  margin-top: 1rem;
+}
+
+.buttonGenreUpdate:hover {
+  background-color: #9ba4b5;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .containerUpdateGenre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+}

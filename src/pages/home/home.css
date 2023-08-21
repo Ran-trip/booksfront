@@ -1,0 +1,126 @@
+.homeContainer {
+  align-items: center;
+  justify-content: center;
+}
+
+.titleHome {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Libre Baskerville;
+  font-size: 0.8rem;
+  color: #212a3e;
+}
+
+.containerCarrousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.carousel {
+  position: fixed;
+  display: flex;
+  overflow: hidden;
+  width: 80%; /* Full width en mobile */
+  margin: 0 auto;
+}
+
+.carouselItem {
+  flex: 0 0 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carouselItem img {
+  width: 90%;
+  height: auto;
+}
+
+.carouselItem.active {
+  transform: translateX(-100%);
+}
+
+.carouselControls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.prevButton,
+.nextButton {
+  border: none;
+  background-color: none;
+  font-size: 40px;
+  color: #212a3e;
+  cursor: pointer;
+}
+
+.nextButton {
+  margin-right: 20px;
+}
+
+.prevButton {
+  margin-left: 20px;
+}
+
+.carouselText {
+    text-align: center;
+    margin-top: 26rem;
+    font-family: Cormorant Garamond ;
+    font-size: 18px;
+    color: #212a3e;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .homeButton {
+    height: 1.5rem;
+    border: none;
+    color: #f1f6f9;
+    border-radius: 10px;
+    font-family: "Libre Baskerville";
+    background-color: #394867;
+    margin-top: 1rem;
+  }
+  
+  .homeButton:hover {
+    background-color: #9ba4b5;
+    cursor: pointer;
+  }
+  
+
+@media screen and (min-width: 600px) {
+  
+  .carousel {
+    height: 40%;
+    width: 20%; /* Adjust width for desktop */
+    max-width: 20%; /* Limit maximum width */
+    position: fixed;
+  }
+  .carousel-item img {
+    width: 40%; /* Allow the image to expand fully */
+    height: 30%; /* Maintain aspect ratio */
+  }
+  .titleHome {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Libre Baskerville;
+    font-size: 1rem;
+    color: #212a3e;
+  }
+  .carouselText {
+    text-align: center;
+    margin-top: 30rem;
+    font-family: Cormorant Garamond ;
+    font-size: 18px;
+    color: #212a3e;
+  }
+}
+
