@@ -4,8 +4,8 @@ import { useUser } from "../../context/UserContext"; // Importer le contexte uti
 import "./booksList.css";
 
 const BooksList = () => {
-  const { genresMap } = useUser(); // Utiliser le genresMap du contexte utilisateur
-  const { booksList, setBooksList } = useBooks(); // Utiliser le contexte des livres
+  const { genresMap } = useUser(); // Utilisation du genresMap du contexte utilisateur
+  const { booksList, setBooksList } = useBooks(); // Utilisation du contexte des livres
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem("selectedBooks")) || [];

@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { useUser } from "./UserContext"; // Importer le contexte utilisateur
+import { useUser } from "./UserContext";
 
 const BooksContext = createContext(null);
 
 const BooksProvider = ({ children }) => {
-  const { genresMap } = useUser(); // Utiliser le genresMap du contexte utilisateur
-  const [booksList, setBooksList] = useState([]); // Gérer l'état des livres
+  const { genresMap } = useUser(); // Utilisation du genresMap de userContext
+  const [booksList, setBooksList] = useState([]); // Gére l'état des livres
 
   useEffect(() => {
     const retrieveBooks = async () => {
@@ -23,17 +23,7 @@ const BooksProvider = ({ children }) => {
     retrieveBooks();
   }, []);
 
-  const updateBookById = async (id, data) => {
-    
-    try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/books/${id}`, data);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  // Fonction pour ajouter un livre sélectionné au localStorage
+  // une fonction pour ajouter un livre sélectionné au localStorage
   const handleBookClick = (book) => {
     const selectedBooks =
       JSON.parse(localStorage.getItem("selectedBooks")) || [];
@@ -47,7 +37,9 @@ const BooksProvider = ({ children }) => {
   };
 
   return (
-    <BooksContext.Provider value={{ booksList, setBooksList, handleBookClick, genresMap, updateBookById }}>
+    <BooksContext.Provider
+      value={{ booksList, setBooksList, handleBookClick, genresMap }}
+    >
       {children}
     </BooksContext.Provider>
   );

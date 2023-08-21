@@ -1,70 +1,82 @@
 body {
-    font-family: 'Cormorant Garamond', serif;
-  }
-  
-  .containerBookList {
-    margin: 20px;
-  }
-  
+  font-family: "Cormorant Garamond", serif;
+}
+
+.containerBookList {
+  margin: 20px;
+}
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 1 column */
+  gap: 20px;
+}
+
+.bookItem {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.bookItem:hover {
+  transform: translateY(-20px);
+}
+
+.bookImage {
+  width: 100%;
+  height: auto;
+}
+.titleBookList {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bookGrid {
+  /* ... Autres styles ... */
+  gap: 20px;
+}
+
+.bookItem {
+  /* ... Autres styles ... */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookDetails {
+  flex: 1;
+}
+
+.bookDeleteButton {
+  align-self: flex-end;
+  margin-top: auto;
+  width: 5rem;
+  height: 1.5rem;
+  border: none;
+  color: #F1F6F9;
+  border-radius: 15px;
+  font-family:  Libre Baskerville;
+  background-color: #394867;
+}
+
+.bookDeleteButton:hover {
+  background-color: #9BA4B5;
+  cursor: pointer;
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 576px) {
   .bookGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile: 1 column */
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
   }
-  
-  .bookItem {
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 20px;
-    transition: transform 0.2s;
-  }
-  
-  .bookItem:hover {
-    transform: translateY(-20px);
-  }
-  
-  .bookImage {
-    width: 100%;
-    height: auto;
-  }
-  .titleBookList {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 992px) {
   .bookGrid {
-    /* ... Autres styles ... */
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr); /* Desktop: 4 columns */
   }
-  
-  .bookItem {
-    /* ... Autres styles ... */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .bookDetails {
-    flex: 1;
-  }
-  
-  .bookDeleteButton {
-    align-self: flex-end;
-    margin-top: auto;
-  }
-  
-  /* Tablet Styles */
-  @media screen and (min-width: 576px) {
-    .bookGrid {
-      grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
-    }
-  }
-  
-  /* Desktop Styles */
-  @media screen and (min-width: 992px) {
-    .bookGrid {
-      grid-template-columns: repeat(5, 1fr); /* Desktop: 4 columns */
-    }
-  }
+}
