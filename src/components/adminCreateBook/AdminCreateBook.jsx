@@ -12,13 +12,14 @@ const AdminCreateBook = () => {
   const [releaseDate, setReleaseDate] = useState("");
   const [picture, setPicture] = useState("");
   const [genresList, setGenresList] = useState([]);
-
+  // Appel à la fonction pickGenres lors du chargement du composant
   useEffect(() => {
     pickGenres();
   }, []);
 
   const pickGenres = async () => {
     try {
+      //l'appel à l'API pour pour la récupération de la liste des genres
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/genres`
       );
@@ -30,10 +31,7 @@ const AdminCreateBook = () => {
 
   // formuler controller sans form
   const handleSubmit = async () => {
-    //envoie vers l'api
-    //envoie de la donnée en après l'url
-    //envoie de données sous une nouvelle forme
-    //New formData va créer une nouvelle multipart form data
+    //Création d'un nouvel obje formData pour envoyé les données dans du formulaire
     const formData = new FormData();
     formData.append("name", name);
     formData.append("genreId", genreId);
@@ -42,12 +40,14 @@ const AdminCreateBook = () => {
     formData.append("picture", picture[0]);
 
     try {
+    // récupération du Jwt token de l'administrateur depuis le localStorage
       const adminJwt = localStorage.getItem("adminJwt");
       await axios.post(`${process.env.REACT_APP_API_URL}/books`, formData, {
         headers: {
           Authorization: `Bearer ${adminJwt}`,
         },
       });
+      //redirection ver la page books, si la créatione est réussi
       navigator("/books");
     } catch (error) {
       console.error(
