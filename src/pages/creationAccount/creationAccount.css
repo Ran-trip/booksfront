@@ -44,6 +44,11 @@ form p {
   background-color: #394867;
 }
 
+.buttonCreationAccountStyle:hover {
+  background-color: #9BA4B5;
+  cursor: pointer;
+}
+
 .errorCreaback {
   color: red;
   text-align: center;

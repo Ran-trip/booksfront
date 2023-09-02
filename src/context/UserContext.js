@@ -5,7 +5,7 @@ import axios from "axios";
 //créer un context
 const UserContext = createContext(null);
 
-//childen récupérer des composant à l'interrieur d'autre composant
+//children récupérer des composant à l'interrieur d'autre composant
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(
     localStorage.getItem("user")
